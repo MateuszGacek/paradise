@@ -29,13 +29,13 @@ body {
 	border: 1px solid transparent;
 	cursor: pointer;
 	z-index: 99;
-
+	
 	&:focus {
 		outline: none;
 		border: 1px solid rgba(255, 255, 255, 0.5);
 		border-radius: 8px;
 	}
-
+	
 	&:hover {
 		.burger-btn__bars::after,
 		.burger-btn__bars::before {
@@ -121,6 +121,12 @@ body {
 			transform: scaleY(1);
 		}
 	}
+}
+
+.black-bars-color,
+.black-bars-color::after,
+.black-bars-color::before {
+	background-color: colors.$dark;
 }
 
 .header {
@@ -443,6 +449,94 @@ body {
 	}
 }
 
+.contact {
+	position: relative;
+	background-color: colors.$light-white;
+	overflow: hidden;
+
+	.white-block-left {
+		background-color: colors.$dark;
+	}
+
+	&__form {
+		display: flex;
+		flex-direction: column;
+
+		&-top {
+			display: flex;
+			flex-direction: column;
+		}
+
+		&-label {
+			margin-bottom: 0.5em;
+			text-transform: uppercase;
+		}
+		&-input {
+			@include mixins.contactForm;
+		}
+		&-textarea {
+			max-width: 100%;
+			min-width: 100%;
+			min-height: 150px;
+		}
+		&-btn {
+			align-self: flex-end;
+			margin: 2em 0.5em;
+			padding: 0.6em 1.5em;
+			color: colors.$pure-white;
+			border: none;
+			border-radius: 8px;
+			background-color: colors.$primary-color;
+			cursor: pointer;
+		}
+
+		&::before {
+			background-color: colors.$secondary-color;
+		}
+	}
+}
+
+//FOOTER
+
+.footer {
+	color: colors.$pure-white;
+	background-color: colors.$dark;
+	.wrapper {
+		padding: 6em 2em 0em;
+	}
+	&__box {
+		font-size: 1.4rem;
+		&-desktop {
+			display: none;
+		}
+		&-title {
+			margin-bottom: 1em;
+			font-size: 3rem;
+			text-transform: uppercase;
+		}
+		&-social {
+			margin: 2em 0 1em;
+		}
+		&-link {
+			color: colors.$pure-white;
+			font-size: 3.8rem;
+			padding: 0 0.3em;
+			text-decoration: none;
+			transition: color 0.3s;
+			&:hover {
+				color: colors.$primary-color;
+			}
+			&:first-child {
+				padding-left: 0;
+			}
+		}
+	}
+	&__bottom {
+		padding: 1em;
+		text-align: center;
+	}
+}
+
 // MEDIA
 
 @media (min-width: 576px) {
@@ -545,6 +639,35 @@ body {
 		.islands__card-cont {
 			width: 40%;
 			margin: 2em auto;
+		}
+	}
+	.footer {
+		&__boxes {
+			display: flex;
+			justify-content: space-between;
+		}
+		&__box {
+			margin: 0 2em;
+			width: 25%;
+			&:first-child {
+				width: 50%;
+			}
+			&-desktop {
+				display: block;
+			}
+			&-title {
+				font-size: 2.4rem;
+			}
+			&-list {
+				list-style: none;
+			}
+			&-item {
+				margin-bottom: 1em;
+				a {
+					color: colors.$light-white;
+					text-decoration: none;
+				}
+			}
 		}
 	}
 }
